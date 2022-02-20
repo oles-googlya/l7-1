@@ -5,7 +5,9 @@ RUN apt-get update && \
     apt install -y git
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN cd boxfuse-sample-java-war-hello && mvn package
+RUN ls
 
 FROM tomcat:9.0-alpine
 COPY --from=build /boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
+RUN ls
 EXPOSE 8080 
