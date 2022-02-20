@@ -10,5 +10,6 @@ RUN mvn package && ls
 FROM tomcat:9.0-alpine
 COPY --from=build /boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 WORKDIR /var/lib/tomcat9/webapps/
-RUN ls
+RUN ls && \
+RUN service tomcat9 restart
 EXPOSE 8080 
