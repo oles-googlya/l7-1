@@ -8,7 +8,7 @@ WORKDIR /boxfuse-sample-java-war-hello/
 RUN mvn package && ls
 
 FROM tomcat:9.0-alpine
-COPY --from=build /boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
+COPY --from=build /boxfuse-sample-java-war-hello/target/hello-1.0.war /usr/local/tomcat/webapps/
 WORKDIR /var/lib/tomcat9/webapps/
 RUN ls
 EXPOSE 8080 
